@@ -2,7 +2,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.packages.appointments.model.Appointment" %>
 <%@ page import="com.packages.appointments.dao.AppointmentDao" %>
-<%@ page import="com.packages.appointments.servlet.DisplayAppointmentsServlet" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,16 +25,23 @@
             </thead>
             <tbody>
                 <%
-                    List<Appointment> appointments = (List<Appointment>) request.getAttribute("appointments");
+                    List<Appointment> appointments = null;
+                    try {
+                        AppointmentDao dao = new AppointmentDao();
+                        appointments = dao.getAllAppointments();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
                     if (appointments != null && !appointments.isEmpty()) {
                         for (Appointment appointment : appointments) {
                 %>
                     <tr>
-                        <td>${appointment.getId()}</td>
-                        <td>${appointment.getUsername()}</td>
-                        <td>${appointment.getDate()}</td>
-                        <td>${appointment.getTime()}</td>
-                        <td>${appointment.getDescription()}</td>
+                        <td><%= appointment.getId() %></td>
+                        <td><%= appointment.getUsername() %></td>
+                        <td><%= appointment.getDate() %></td>
+                        <td><%= appointment.getTime() %></td>
+                        <td><%= appointment.getDescription() %></td>
                     </tr>
                 <%
                         }
