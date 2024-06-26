@@ -33,9 +33,9 @@ The Appointment Management Application is a web-based system designed to facilit
    - Update the `DBConnection.java` file with your MySQL username and password.
 5. **Deploy the application:**
    - Use a servlet container like Apache Tomcat to deploy the application.
-   - Copy the `appointment-management.war` file to the `webapps` directory of your Tomcat installation.
+   - Copy the `AppointmentManager.war` file to the `webapps` directory of your Tomcat installation.
 6. **Access the application:**
-   - Open your web browser and navigate to `http://localhost:8080/appointment-management`.
+   - Open your web browser and navigate to `http://localhost:8080/AppointmentManager`.
 
 ## Usage
 - **Login/Registration:**
@@ -79,11 +79,11 @@ appointment-management/
 │   │       └── DisplayAppointments.jsp
 │
 ├── db/
-│   └── schema.sql
+│   └── Database.sql
 │
 ├── README.md
 ├── pom.xml
-└── appointment-management.war
+└── AppointmentManager.war
 ```
 
 ## Contributing
